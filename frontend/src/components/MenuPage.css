@@ -1,0 +1,52 @@
+/* frontend/src/components/MenuPage.css */
+
+.menu-container {
+    display: flex; /* Biến container chính thành Flex container */
+    justify-content: space-between; /* Đẩy cột trái và cột phải ra xa nhau */
+    padding: 20px; /* Thêm khoảng đệm cho toàn bộ trang Menu */
+    /* Có thể thêm max-width và margin: auto; nếu bạn muốn nội dung MenuPage không full width */
+    /* max-width: 1280px; */
+    /* margin: 20px auto; */
+  }
+  
+  .menu-left-column {
+    flex: 1; /* Cho phép cột trái co giãn */
+    margin-right: 30px; /* Khoảng cách giữa cột trái và phải */
+    /* max-width: 300px; */ /* Ví dụ: giới hạn chiều rộng cột trái */
+  }
+  
+  .menu-right-column {
+    flex: 2; /* Cho phép cột phải co giãn nhanh hơn (ví dụ: gấp đôi cột trái) */
+    display: flex; /* Biến cột phải thành Flex container */
+    flex-direction: column; /* Xếp các section bên trong theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các section */
+  }
+  
+  .menu-section {
+    border: 1px solid #ccc; /* Đường viền */
+    padding: 15px; /* Khoảng đệm bên trong */
+    border-radius: 8px; /* Bo tròn góc */
+    background-color: #f9f9f9; /* Nền nhẹ */
+  }
+  
+  .menu-section h2 {
+      margin-top: 0;
+  }
+  
+  /* Điều chỉnh responsive */
+  @media (max-width: 768px) {
+    .menu-container {
+      flex-direction: column; /* Xếp cột trên màn hình nhỏ */
+      padding: 15px;
+    }
+  
+    .menu-left-column {
+      margin-right: 0;
+      margin-bottom: 20px; /* Khoảng cách dưới cột trái */
+    }
+  
+    .menu-right-column {
+      flex-direction: column; /* Các section vẫn xếp chồng */
+      gap: 15px;
+    }
+  }

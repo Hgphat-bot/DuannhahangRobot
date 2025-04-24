@@ -1,0 +1,29 @@
+.title-box {
+  border: 1px solid #007bff;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #e9f5ff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.title-box h2 {
+    margin: 0;
+    color: #0056b3;
+}
+
+.description-box {
+  border: 1px solid #28a745;
+  padding: 15px;
+  background-color: #e2f0cb;
+  border-radius: 8px;
+}
+
+.description-box p {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.description-box p:last-child {
+    margin-bottom: 0;
+}
