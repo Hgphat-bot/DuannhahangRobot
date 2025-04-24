@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './LoginPage.css';
 
 function LoginPage() {
@@ -7,7 +7,7 @@ function LoginPage() {
   const handleLogin = (event) => {
     event.preventDefault();
     console.log('Đang xử lý đăng nhập...');
-    navigate('/app/dashboard');
+    navigate('/');
   };
 
   return (
@@ -22,8 +22,10 @@ function LoginPage() {
           <label htmlFor="password">Mật khẩu:</label>
           <input type="password" id="password" name="password" />
         </div>
-        <button type="submit">Đăng nhập</button>
+        <button type="submit" className="submit-button">Đăng nhập</button>
       </form>
+
+      <p className="auth-link-text">Bạn chưa có tài khoản? <Link to="/register">Đăng ký tại đây</Link></p>
     </div>
   );
 }

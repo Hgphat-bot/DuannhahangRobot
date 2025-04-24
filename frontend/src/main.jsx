@@ -1,32 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
-import LoginPage from './components/loginPage.jsx';
+import LoginPage from './components/LoginPage.jsx';
 import AboutPage from './components/AboutPage.jsx';
 import MenuPage from './components/MenuPage.jsx';
 import Layout from './components/Layout.jsx';
+import ChatbotPage from './components/ChatbotPage.jsx';
+import ReservationPage from './components/ReservationPage.jsx';
+import RegistrationPage from './components/RegistrationPage.jsx';
 import './index.css';
-
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import ReservationPage from './components/ReservationPage.jsx';
-import ChatbotPage from './components/ChatbotPage.jsx';
-
-
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginPage />,
-  },
-  {
-    path:"app",
-    element:<Layout />,
+    element: <Layout />,
     children: [
       {
-        path: "dashboard",
+        index: true,
         element: <App />,
       },
       {
@@ -38,19 +32,23 @@ const router = createBrowserRouter([
         element: <MenuPage />,
       },
       {
+        path: "chatbot",
+        element: <ChatbotPage />,
+      },
+      {
         path: "dat-ban",
         element: <ReservationPage />,
       },
-      {
-        path: "chatbot",
-        element: <ChatbotPage />
-      },
-      {
-        index: true,
-        element: <App />,
-      },
-    ]
+    ],
   },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element: <RegistrationPage />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

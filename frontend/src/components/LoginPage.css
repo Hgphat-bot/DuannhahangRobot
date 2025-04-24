@@ -37,8 +37,8 @@
   .login-container button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--color-button-background);
+    color: var(--color-button-text);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -47,5 +47,17 @@
   }
   
   .login-container button:hover {
-    background-color: #0056b3;
+    background-color: var(--color-button-hover);
   }
+
+  .auth-link-text {
+    margin-top: 20px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.auth-link-text a {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-decoration: underline;
+}
