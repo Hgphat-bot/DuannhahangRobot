@@ -1,189 +1,345 @@
 /* frontend/src/App.css */
 
-/* ... Các kiểu dáng cho .main-content, .main-content-layout, các hộp, hero-section ... */
+/* Style cho container nội dung chính (giới hạn chiều rộng và căn giữa) */
+.main-content {
+  max-width: 1280px; /* Giới hạn chiều rộng tối đa */
+  margin: 0 auto;     /* Căn giữa khối */
+  /* padding: 0 20px; */ /* Có thể thêm padding hai bên nếu cần */
+}
 
-/* Kiểu dáng chung cho các Content Sections */
+/* --- STYLE CHO HERO SECTION --- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 60vh; /* Chiều cao tối thiểu */
+  background-image: url('/path/to/your/hero-image.jpg'); /* <-- THAY THẾ BẰNG ĐƯỜNG DẪN ẢNH THỰC TẾ TRONG public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: var(--color-text-light); /* Chữ trắng */
+  /* text-shadow: 2px 2px 4px rgba(0,0,0,0.5); */ /* Bóng đổ chữ */
+
+  margin-bottom: 30px;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+    /* backdrop-filter: blur(5px); */
+    /* background-color: rgba(0,0,0,0.3); */
+    /* padding: 20px; border-radius: 8px; */
+}
+
+.hero-section h1 {
+  font-size: 3em;
+  margin-bottom: 15px;
+  /* color: var(--color-accent); */ /* Tiêu đề màu nhấn */
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: var(--color-button-background); /* Nền nút Vàng */
+  color: var(--color-button-text); /* Chữ Đen */
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  border: none; /* Nếu là button */
+  cursor: pointer; /* Nếu là link */
+}
+
+.hero-button:hover {
+  background-color: var(--color-button-hover); /* Vàng đậm hơn */
+}
+
+
+/* --- STYLE CHO CÁC CONTENT SECTIONS (Dưới Hero) --- */
 .content-section {
-  padding: 40px 0; /* Khoảng đệm trên dưới cho mỗi section (trái phải đã có ở .main-content) */
-  margin-bottom: 30px; /* Khoảng cách dưới mỗi section */
-  /* background-color: var(--color-background-light); */ /* Nền nhẹ, tùy chọn */
-  /* border-bottom: 1px solid var(--color-border); */ /* Đường viền dưới, tùy chọn */
+    padding: 40px 0; /* Khoảng đệm trên dưới */
+    margin-bottom: 30px; /* Khoảng cách dưới */
+    /* background-color: var(--color-background-light); */
+    /* border-bottom: 1px solid var(--color-border); */
 }
 
 .content-section h2 {
-  text-align: center; /* Căn giữa tiêu đề section */
-  margin-bottom: 25px;
-  color: var(--color-primary); /* Màu tiêu đề section */
-  font-size: 2em;
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--color-primary); /* Màu Đỏ */
+    font-size: 2em;
 }
 
 .content-section p {
-  text-align: center; /* Căn giữa đoạn mô tả section */
-  margin-bottom: 20px;
-  font-size: 1.1em;
-  color: var(--color-text-dark);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: var(--color-text-dark); /* Màu Đen */
 }
 
-/* Kiểu dáng cho các nút trong section */
 .section-button {
-display: block; /* Nút trên dòng riêng */
-width: fit-content; /* Chiều rộng vừa với nội dung */
-margin: 20px auto 0 auto; /* Căn giữa nút và thêm khoảng cách trên */
-padding: 10px 20px;
-background-color: var(--color-secondary); /* <-- Ví dụ: Nền màu Đen cho nút section */
-color: var(--color-text-light); /* <-- Chữ Trắng trên nút */
-text-decoration: none;
-border-radius: 4px;
-font-size: 1em;
-font-weight: bold;
-transition: background-color 0.3s ease;
+  display: block;
+  width: fit-content;
+  margin: 20px auto 0 auto; /* Căn giữa nút */
+  padding: 10px 20px;
+  background-color: var(--color-secondary); /* Nền Đen */
+  color: var(--color-text-light); /* Chữ Trắng */
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .section-button:hover {
-background-color: var(--color-primary); /* <-- Màu Đỏ khi hover */
+background-color: var(--color-primary); /* Màu Đỏ khi hover */
 }
 
 
-/* Kiểu dáng cho Section Menu Nổi bật */
+/* --- STYLE CHO SLIDER MENU NỔI BẬT (TRONG .content-section) --- */
 .menu-highlights-section {
-  background-color: var(--color-background-light); /* Nền nhẹ */
-  padding: 40px 20px; /* Thêm padding bên trong section */
+    background-color: var(--color-background-light); /* Nền nhẹ */
+    padding: 40px 20px; /* Khoảng đệm trong section */
 }
 
-/* Bố cục các món nổi bật bên trong section */
-.menu-highlights-section .section-content-layout {
-  display: flex; /* Sử dụng Flexbox */
-  gap: 20px; /* Khoảng cách giữa các món */
-  flex-wrap: wrap; /* Cho phép xuống dòng */
-  justify-content: center; /* Căn giữa các món */
+.menu-highlights-section .highlight-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Giới hạn chiều rộng slider */
+    margin: 0 auto 20px auto; /* Căn giữa slider và khoảng cách dưới */
+    overflow: hidden; /* <-- QUAN TRỌNG: Chỉ hiển thị 1 item */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-.menu-highlights-section .highlight-item {
-  max-width: 250px; /* Chiều rộng tối đa mỗi món */
-  text-align: center;
+.menu-highlights-section .highlight-slider-wrapper {
+    display: flex; /* <-- QUAN TRỌNG: Xếp các item cạnh nhau */
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng trượt */
 }
-.menu-highlights-section .highlight-item img {
-  width: 100%; /* Ảnh rộng full container */
-  height: 150px; /* Chiều cao cố định cho ảnh (hoặc auto) */
-  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+
+.menu-highlights-section .highlight-slider-item {
+    min-width: 100%; /* <-- QUAN TRỌNG: Mỗi item chiếm 100% chiều rộng */
+    box-sizing: border-box;
+    display: flex; /* Bố cục nội dung (ảnh + info) */
+    flex-direction: column; /* Xếp theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    padding: 20px; /* Khoảng đệm bên trong item */
+    background-color: var(--color-background-light); /* Nền item */
+}
+
+.menu-highlights-section .highlight-slider-item img {
+    width: 95%; /* Chiều rộng ảnh */
+    height: auto; /* Giữ tỷ lệ */
+    max-height: 300px; /* Chiều cao tối đa */
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Khoảng cách dưới ảnh */
+    display: block;
+}
+
+.menu-highlights-section .highlight-item-info {
+    text-align: center;
+    max-width: 90%;
+    padding-bottom: 10px;
+}
+
+.menu-highlights-section .highlight-item-info h3 {
+    font-size: 1.1em;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.menu-highlights-section .highlight-item-info p {
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* Kiểu dáng cho nút điều hướng slider */
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--color-primary); /* Màu Đỏ */
+  border: none;
+  padding: 10px 12px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.8em;
   border-radius: 4px;
-  margin-bottom: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  opacity: 0.8;
 }
-.menu-highlights-section .highlight-item h3 {
-  font-size: 1.1em;
-  color: var(--color-text-dark);
-  margin-bottom: 5px;
+
+.slider-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--color-secondary); /* Màu Đen */
+  opacity: 1;
 }
-.menu-highlights-section .highlight-item p {
-   font-size: 0.9em;
-   color: var(--color-text-dark);
-   margin-bottom: 0; /* Xóa margin dưới p cuối cùng */
-   text-align: center; /* Đảm bảo căn giữa */
+
+.prev-button { left: 15px; }
+.next-button { right: 15px; }
+
+/* Style cho Pagination Dots */
+.slider-pagination {
+    text-align: center;
+    margin-top: 15px; /* Điều chỉnh khoảng cách trên */
+}
+
+.pagination-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    background-color: var(--color-border);
+    border: 1px solid var(--color-secondary); /* Viền Đen */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.pagination-dot:hover {
+    background-color: var(--color-secondary); /* Nền Đen */
+    border-color: var(--color-secondary); /* Viền Đen */
+}
+
+.pagination-dot.active {
+    background-color: var(--color-secondary); /* Nền Đen */
+    border-color: var(--color-primary); /* Viền Đỏ */
 }
 
 
-/* Kiểu dáng cho Section Khuyến mãi Đặt bàn */
+/* --- STYLE CHO SECTION KHUYẾN MÃI ĐẶT BÀN --- */
 .reservation-promo-section {
-  background-color: var(--color-primary); /* Nền màu Đỏ */
-  color: var(--color-text-light); /* Chữ màu Trắng */
-  padding: 40px 20px;
+    background-color: var(--color-primary); /* Nền Đỏ */
+    color: var(--color-text-light); /* Chữ Trắng */
+    padding: 40px 20px;
 }
-.reservation-promo-section h2 {
-  color: var(--color-text-light); /* Màu trắng cho tiêu đề */
-}
-.reservation-promo-section p {
-  color: var(--color-text-light); /* Màu trắng cho mô tả */
-}
+.reservation-promo-section h2 { color: var(--color-text-light); } /* Chữ Trắng */
+.reservation-promo-section p { color: var(--color-text-light); } /* Chữ Trắng */
 .reservation-promo-section .section-button {
-  background-color: var(--color-accent); /* Nền Vàng cho nút */
-  color: var(--color-button-text); /* Chữ Đen trên nút */
+    background-color: var(--color-accent); /* Nền Vàng */
+    color: var(--color-button-text); /* Chữ Đen */
 }
 .reservation-promo-section .section-button:hover {
-  background-color: var(--color-button-hover); /* Vàng đậm hơn khi hover */
+    background-color: var(--color-button-hover); /* Vàng đậm */
 }
 
 
-/* Kiểu dáng cho Section Chatbot/Công nghệ */
+/* --- STYLE CHO SECTION CHATBOT/CÔNG NGHỆ --- */
 .chatbot-promo-section {
-  background-color: var(--color-background-light); /* Nền nhẹ */
-  padding: 40px 20px;
+    background-color: var(--color-background-light); /* Nền nhẹ */
+    padding: 40px 20px;
 }
-/* Bố cục 2 cột (text và ảnh) bên trong section */
 .chatbot-promo-section .section-content-layout {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  align-items: center; /* Căn giữa theo chiều dọc */
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 .chatbot-promo-section .section-content-layout.layout-reverse {
-  flex-direction: row-reverse; /* Đảo ngược thứ tự cột */
+    flex-direction: row-reverse;
 }
 .chatbot-promo-section .section-text {
-  flex: 1; /* Cho phép phần text co giãn */
-  min-width: 280px; /* Chiều rộng tối thiểu để xuống dòng */
-  text-align: left; /* Căn chỉnh text sang trái */
+    flex: 1;
+    min-width: 280px;
+    text-align: left;
 }
 .chatbot-promo-section .section-image {
-  flex: 1; /* Cho phép phần ảnh co giãn */
-  min-width: 280px; /* Chiều rộng tối thiểu */
+    flex: 1;
+    min-width: 280px;
 }
 .chatbot-promo-section .section-image img {
-  width: 100%; /* Ảnh rộng full cột */
-  height: auto;
-  border-radius: 4px;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
 }
 .chatbot-promo-section h2,
 .chatbot-promo-section p,
 .chatbot-promo-section .section-button {
-  text-align: left; /* Căn chỉnh nội dung text/nút sang trái trong cột */
-  margin-left: 0; /* Đảm bảo không bị margin auto */
+    text-align: left;
+    margin-left: 0;
 }
 .chatbot-promo-section .section-button {
-  margin: 20px 0 0 0; /* Điều chỉnh margin cho nút */
+    margin: 20px 0 0 0;
 }
 
 
-/* Điều chỉnh responsive cho các sections */
+/* --- ĐIỀU CHỈNH RESPONSIVE CHUNG CHO CÁC SECTIONS --- */
 @media (max-width: 768px) {
-  .content-section {
-      padding: 30px 15px; /* Giảm padding trên mobile */
-      margin-bottom: 20px; /* Giảm khoảng cách dưới section */
-  }
-  .content-section h2 {
-      font-size: 1.8em; /* Giảm kích thước tiêu đề */
-      margin-bottom: 20px;
-  }
-  .content-section p {
-      font-size: 1em; /* Giảm kích thước mô tả */
-      margin-bottom: 15px;
-  }
-   .section-button {
-      padding: 8px 15px; /* Giảm kích thước nút */
-      font-size: 0.9em;
-      margin-top: 15px;
-  }
+    .content-section {
+        padding: 30px 15px; /* Giảm padding trên mobile */
+        margin-bottom: 20px;
+    }
+    .content-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    .content-section p {
+        font-size: 1em;
+        margin-bottom: 15px;
+    }
+    .section-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        margin-top: 15px;
+    }
 
-  /* Responsive cho bố cục 2 cột (text/ảnh) */
-  .chatbot-promo-section .section-content-layout,
-  .chatbot-promo-section .section-content-layout.layout-reverse {
-      flex-direction: column; /* Xếp cột trên mobile */
-      gap: 20px;
-      align-items: center; /* Căn giữa theo chiều ngang khi xếp cột */
-  }
-   .chatbot-promo-section .section-text,
-   .chatbot-promo-section .section-image {
-       width: 100%; /* Choán hết chiều rộng */
-       min-width: auto; /* Bỏ min-width */
-       text-align: center; /* Căn giữa text/ảnh trên mobile */
-   }
+    /* Responsive cho bố cục 2 cột (text/ảnh) */
+    .chatbot-promo-section .section-content-layout,
+    .chatbot-promo-section .section-content-layout.layout-reverse {
+        flex-direction: column; /* Xếp cột */
+        gap: 20px;
+        align-items: center;
+    }
+    .chatbot-promo-section .section-text,
+    .chatbot-promo-section .section-image {
+        width: 100%;
+        min-width: auto;
+        text-align: center;
+    }
     .chatbot-promo-section h2,
     .chatbot-promo-section p,
     .chatbot-promo-section .section-button {
-        text-align: center; /* Căn giữa nội dung trong cột trên mobile */
-        margin-left: auto; /* Cần auto để căn giữa */
-        margin-right: auto; /* Cần auto để căn giữa */
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
-     .chatbot-promo-section .section-button {
-         margin-top: 15px; /* Khoảng cách trên nút */
+    .chatbot-promo-section .section-button {
+        margin-top: 15px;
+    }
+
+    /* Responsive cho Slider */
+    .menu-highlights-section .highlight-slider-container {
+        margin-bottom: 20px;
+    }
+     .menu-highlights-section .highlight-slider-item img {
+        height: 200px; /* Chiều cao ảnh nhỏ hơn */
+        max-height: 250px;
      }
+     .slider-button {
+         padding: 6px 10px;
+         font-size: 1.5em;
+         left: 10px; right: 10px;
+     }
+    .slider-pagination {
+       margin-top: 15px;
+   }
+   .pagination-dot {
+       width: 10px; height: 10px;
+       margin: 0 5px;
+   }
 }
