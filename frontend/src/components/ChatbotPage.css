@@ -78,13 +78,3 @@
 .send-button:hover {
   background-color: var(--color-button-hover);
 }
-
-@media (max-width: 768px) {
-     .chatbot-container {
-         padding: 15px;
-         margin: 15px auto;
-     }
-     .chat-box {
-         height: 300px;
-     }
-}

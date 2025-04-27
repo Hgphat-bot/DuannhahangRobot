@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 
 function App() {
+
+
   const [currentHighlightIndex, setCurrentHighlightIndex] = useState(0);
   const highlightItems = [
     { id: 1, name: "Bò úc áp chảo", description: "Món bò đặc biệt của nhà hàng.", image: "/Boucapchao.jpg" },

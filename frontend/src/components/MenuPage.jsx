@@ -15,7 +15,7 @@ function MenuPage() {
         <div className="menu-section employee-section">
           <h2>Quản lý Nhân viên</h2>
           <p>Nhấn vào đây để xem danh sách nhân viên hoặc thực hiện các thao tác quản lý.</p>
-          <Link to="/employee" className="menu-choice-button">Xem Quản lý Nhân viên</Link>
+          <Link to="/employees" className="menu-choice-button">Xem Quản lý Nhân viên</Link>
         </div>
 
         <div className="menu-section food-section">

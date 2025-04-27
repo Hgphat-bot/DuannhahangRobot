@@ -1,10 +1,9 @@
 // frontend/src/components/FoodMenuPage.jsx
 
 import React from 'react';
-// Import Link nếu cần link từ trang này đi (ví dụ: về trang chủ)
 // import { Link } from 'react-router-dom';
-// Import CSS cho trang FoodMenuPage (sẽ tạo ở Bước 4)
-import './FoodMenuPage.css'; // <-- Sẽ tạo file CSS này ở Bước 4
+import './FoodMenuPage.css';
+import { useCart } from '../CartContext';
 
 function FoodMenuPage() {
   // <-- DÁN MẢNG DỮ LIỆU MÓN ĂN MẪU TẠI ĐÂY -->
@@ -15,33 +14,30 @@ function FoodMenuPage() {
     { id: 4, name: "Chân ngỗng sốt điệp", description: "Món ăn độc đáo.", image: "/Channgongsodiep.jpg" },
     // ... các món khác ...
   ];
-
-
+  const { handleAddToCart } = useCart();
   return (
-    <div className="food-menu-container"> {/* <-- Container chính cho trang hiển thị lưới món ăn */}
-      <h1>Menu Món ăn Nhà hàng</h1> {/* Tiêu đề riêng cho trang này */}
-
+    <div className="food-menu-container">
+      <h1>Menu Gọi món Nhà hàng</h1>
+      
       {/* KHU VỰC HIỂN THỊ DANH SÁCH MÓN ĂN (LƯỚI) */}
-      {/* <-- DÁN PHẦN CODE NÀY TỪ MENU PAGE CŨ VÀO ĐÂY --> */}
-      <div className="menu-items-grid"> {/* Style trong FoodMenuPage.css */}
+      <div className="menu-items-grid">
+          { /* ... vòng lặp map qua menuItems và các item ... */ }
           {
             menuItems.map(item => (
-              <div key={item.id} className="menu-item"> {/* Style trong FoodMenuPage.css */}
-                <img src={item.image} alt={item.name} /> {/* Style trong FoodMenuPage.css */}
-                <div className="menu-item-info"> {/* Style trong FoodMenuPage.css */}
-                    <h3>{item.name}</h3> {/* Style trong FoodMenuPage.css */}
-                    <p className="item-description">{item.description}</p> {/* Style trong FoodMenuPage.css */}
-                    <p className="item-price">{item.price}</p> {/* Style trong FoodMenuPage.css */}
+              <div key={item.id} className="menu-item">
+                <img src={item.image} alt={item.name} />
+                <div className="menu-item-info">
+                    <h3>{item.name}</h3>
+                    <p className="item-description">{item.description}</p>
+                    <p className="item-price">{item.price}</p>
+                    <button className="add-to-cart-button" onClick={() => handleAddToCart(item)}>Thêm vào giỏ</button>
                 </div>
               </div>
             ))
           }
       </div>
-      {/* KẾT THÚC KHU VỰC HIỂN THỊ DANH SÁCH MÓN ĂN */}
-
-      {/* Có thể thêm phân trang, lọc, hoặc các chức năng khác */}
     </div>
   );
 }
 
-export default FoodMenuPage; // Xuất Component
+export default FoodMenuPage;
