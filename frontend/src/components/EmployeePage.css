@@ -1,0 +1,28 @@
+/* frontend/src/components/EmployeePage.css */
+
+/* Style cho container chính của trang Quản lý Nhân viên */
+.employee-container {
+    max-width: 900px; /* Giới hạn chiều rộng nội dung */
+    margin: 20px auto; /* Căn giữa khối */
+    padding: 20px; /* Khoảng đệm bên trong */
+    background-color: var(--color-background-light); /* Nền nhẹ (từ index.css) */
+    border: 1px solid var(--color-border); /* Viền nhạt (từ index.css) */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .employee-container h1 {
+    text-align: center;
+    color: var(--color-primary); /* Màu Đỏ (từ index.css) */
+    margin-bottom: 20px;
+  }
+  
+  .employee-container p {
+      text-align: center; /* Căn giữa đoạn placeholder text */
+      color: var(--color-text-dark); /* Màu Đen (từ index.css) */
+      font-size: 1.1em;
+  }
+  
+  /* Bạn có thể thêm style cho danh sách nhân viên, form thêm/sửa,
+     bảng dữ liệu, v.v. tại đây sau khi xây dựng chức năng đó.
+  */

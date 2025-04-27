@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MenuPage.css';
 
 function MenuPage() {
@@ -14,13 +15,13 @@ function MenuPage() {
         <div className="menu-section employee-section">
           <h2>Quản lý Nhân viên</h2>
           <p>Nhấn vào đây để xem danh sách nhân viên hoặc thực hiện các thao tác quản lý.</p>
-          <button>Xem Nhân viên</button>
+          <Link to="/employee" className="menu-choice-button">Xem Quản lý Nhân viên</Link>
         </div>
 
         <div className="menu-section food-section">
           <h2>Menu Món ăn</h2>
           <p>Nhấn vào đây để xem danh sách các món ăn của nhà hàng.</p>
-          <button>Xem Món ăn</button>
+          <Link to="/food-menu" className="menu-choice-button">Xem Menu Món ăn</Link>
         </div>
 
       </div>

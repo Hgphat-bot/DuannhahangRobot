@@ -1,3 +1,101 @@
+/* frontend/src/index.css */
+
+/* Reset CSS cơ bản để loại bỏ margin/padding mặc định của trình duyệt và thiết lập box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* Định nghĩa Bảng màu theo chủ đề 30/04: Đỏ, Đen, Nút Vàng */
+/* Bạn có thể thay đổi các mã màu hex này để phù hợp với ý tưởng của mình */
+:root {
+  /* Màu chính - chủ đề 30/04 */
+  --color-primary: #DA251D;   /* Màu Đỏ đặc trưng */
+  --color-secondary: #1A1A1A; /* Màu Đen */
+  --color-accent: #F9F15F;    /* Màu Vàng (dùng cho nút bấm và điểm nhấn) */
+
+  /* Màu chữ */
+  --color-text-dark: #1A1A1A; /* Chữ Đen */
+  --color-text-light: #FFFFFF;/* Chữ Trắng */
+
+  /* Màu nền */
+  --color-background-light: #F8F8F8; /* Nền nhẹ */
+  --color-background-dark: #1A1A1A;  /* Nền Đen (tùy chọn cho các section) */
+
+  /* Màu viền */
+  --color-border: #DDDDDD;   /* Màu viền nhạt */
+
+  /* Màu riêng cho nút bấm */
+  --color-button-background: var(--color-accent); /* Nền nút là màu Vàng */
+  --color-button-text: var(--color-text-dark);    /* Chữ trên nút màu Đen hoặc Đậm */
+
+  /* Có thể thêm biến màu cho hiệu ứng hover, active, ... */
+  --color-button-hover: #FFDA00; /* Vàng đậm hơn khi hover */
+
+  /* ... các biến màu khác nếu có ... */
+}
+
+/* Thiết lập Font chữ cơ bản và màu nền/chữ cho toàn bộ body */
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6; /* Điều chỉnh chiều cao dòng cho dễ đọc hơn */
+
+  font-family: 'Arial', sans-serif; /* <-- Font chữ cơ bản */
+  /* Để sử dụng font tùy chỉnh (ví dụ: từ Google Fonts),
+     bạn cần import font đó ở đầu file CSS hoặc trong HTML
+     và thay 'Arial', sans-serif bằng tên font đó.
+  */
+
+  /* Sử dụng biến màu cho màu chữ và màu nền body */
+  color: var(--color-text-dark); /* Màu chữ body */
+  /* background-color: var(--color-background-light); */ /* Mặc định nền nhẹ */
+  background-color: var(--color-secondary); /* <-- Màu nền body tối (Đen) */
+
+
+  /* Giữ lại padding-top cho header cố định */
+  padding-top: 70px; /* Đẩy nội dung body xuống dưới Header cố định */
+}
+
+/* Loại bỏ margin mặc định cho các thẻ heading */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+/* Loại bỏ padding và margin cho ul, ol */
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Loại bỏ text-decoration cho link và sử dụng màu chữ thừa kế */
+a {
+  text-decoration: none;
+  color: inherit; /* Thừa hưởng màu chữ từ phần tử cha (ví dụ: màu chữ body) */
+}
+
+/* Đảm bảo hình ảnh không bị tràn ra ngoài container và dễ căn chỉnh */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Đảm bảo #root không can thiệp vào bố cục toàn trang nếu bạn muốn full width */
+#root { /* <-- Bỏ chú thích cho quy tắc này */
+  max-width: 1280px;  /* <-- GIỮ CHÚ THÍCH DÒNG NÀY */
+  margin: 0 auto;     /* <-- GIỮ CHÚ THÍCH DÒNG NÀY */
+  padding: 2rem;    /* <-- GIỮ CHÚ THÍCH DÒNG NÀY */
+  text-align: center; /* <-- GIỮ CHÚ THÍCH DÒNG NÀY */
+
+  /* Bạn có thể thêm các thuộc tính khác cho #root ở đây nếu cần */
+  /* Ví dụ: min-height: 100vh; */
+}
+
 /* frontend/src/App.css */
 
 /* Style cho container nội dung chính (giới hạn chiều rộng và căn giữa) */
@@ -39,12 +137,13 @@
 .hero-section h1 {
   font-size: 3em;
   margin-bottom: 15px;
-  /* color: var(--color-accent); */ /* Tiêu đề màu nhấn */
+  color: var(--color-accent); /* Màu Vàng */
 }
 
 .hero-section p {
   font-size: 1.2em;
   margin-bottom: 25px;
+  color: var(--color-accent); /* Màu Vàng */
 }
 
 .hero-button {
@@ -67,13 +166,15 @@
 
 
 /* --- STYLE CHO CÁC CONTENT SECTIONS (Dưới Hero) --- */
+/* Các section chung có padding trên dưới và margin dưới */
 .content-section {
     padding: 40px 0; /* Khoảng đệm trên dưới */
     margin-bottom: 30px; /* Khoảng cách dưới */
-    /* background-color: var(--color-background-light); */
-    /* border-bottom: 1px solid var(--color-border); */
+    /* background-color: var(--color-background-light); */ /* Nền nhẹ */
+    /* border-bottom: 1px solid var(--color-border); */ /* Viền dưới */
 }
 
+/* Tiêu đề và đoạn mô tả trong các section */
 .content-section h2 {
     text-align: center;
     margin-bottom: 25px;
@@ -88,6 +189,7 @@
     color: var(--color-text-dark); /* Màu Đen */
 }
 
+/* Nút chung trong các section */
 .section-button {
   display: block;
   width: fit-content;
@@ -100,6 +202,8 @@
   font-size: 1em;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  border: none; /* Nếu là button */
+  cursor: pointer; /* Nếu là link */
 }
 
 .section-button:hover {
@@ -108,28 +212,40 @@ background-color: var(--color-primary); /* Màu Đỏ khi hover */
 
 
 /* --- STYLE CHO SLIDER MENU NỔI BẬT (TRONG .content-section) --- */
+/* Style để làm cho section này FULL WIDTH ngay cả khi nằm trong main-content */
 .menu-highlights-section {
     background-color: var(--color-background-light); /* Nền nhẹ */
     padding: 40px 20px; /* Khoảng đệm trong section */
+    margin-bottom: 30px; /* Khoảng cách dưới section */
+
+    /* <-- THUỘC TÍNH LÀM FULL WIDTH --> */
+    width: 100vw; /* Chiếm toàn bộ chiều rộng của viewport */
+    position: relative; /* Cần thiết cho left/transform */
+    left: 50%; /* Đặt điểm bắt đầu ở giữa viewport */
+    transform: translateX(-50%); /* Dịch chuyển sang trái 50% chiều rộng của chính nó để căn giữa */
+    /* Kết hợp lại làm full width và căn giữa theo viewport */
 }
 
+/* Container bao slider (giới hạn chiều rộng nội dung slider bên trong section full width) */
 .menu-highlights-section .highlight-slider-container {
     position: relative;
-    width: 100%;
-    max-width: 800px; /* Giới hạn chiều rộng slider */
+    width: 100%; /* Chiếm chiều rộng của section cha (giờ là 100vw) */
+    max-width: 800px; /* Giới hạn chiều rộng slider bên trong */
     margin: 0 auto 20px auto; /* Căn giữa slider và khoảng cách dưới */
     overflow: hidden; /* <-- QUAN TRỌNG: Chỉ hiển thị 1 item */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
+/* Wrapper chứa tất cả item (xếp ngang hàng) */
 .menu-highlights-section .highlight-slider-wrapper {
     display: flex; /* <-- QUAN TRỌNG: Xếp các item cạnh nhau */
     transition: transform 0.5s ease-in-out; /* Hiệu ứng trượt */
 }
 
+/* Mỗi item slider (1 slide = 1 item) */
 .menu-highlights-section .highlight-slider-item {
-    min-width: 100%; /* <-- QUAN TRỌNG: Mỗi item chiếm 100% chiều rộng */
+    min-width: 100%; /* <-- QUAN TRỌNG: Mỗi item chiếm 100% chiều rộng của container hiển thị */
     box-sizing: border-box;
     display: flex; /* Bố cục nội dung (ảnh + info) */
     flex-direction: column; /* Xếp theo chiều dọc */
@@ -138,6 +254,7 @@ background-color: var(--color-primary); /* Màu Đỏ khi hover */
     background-color: var(--color-background-light); /* Nền item */
 }
 
+/* Ảnh trong item slider */
 .menu-highlights-section .highlight-slider-item img {
     width: 95%; /* Chiều rộng ảnh */
     height: auto; /* Giữ tỷ lệ */
@@ -148,6 +265,7 @@ background-color: var(--color-primary); /* Màu Đỏ khi hover */
     display: block;
 }
 
+/* Khu vực info trong item slider */
 .menu-highlights-section .highlight-item-info {
     text-align: center;
     max-width: 90%;
@@ -196,7 +314,7 @@ background-color: var(--color-primary); /* Màu Đỏ khi hover */
 /* Style cho Pagination Dots */
 .slider-pagination {
     text-align: center;
-    margin-top: 15px; /* Điều chỉnh khoảng cách trên */
+    margin-top: 15px; /* Khoảng cách trên */
 }
 
 .pagination-dot {
@@ -343,3 +461,4 @@ background-color: var(--color-primary); /* Màu Đỏ khi hover */
        margin: 0 5px;
    }
 }
+

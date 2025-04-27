@@ -1,0 +1,188 @@
+/* frontend/src/components/AboutPage.css */
+
+.about-container {
+    max-width: 1000px; /* Giới hạn chiều rộng nội dung trang Giới thiệu */
+    margin: 20px auto; /* Căn giữa khối */
+    padding: 20px; /* Khoảng đệm bên trong */
+    background-color: var(--color-background-light); /* Nền nhẹ (từ index.css) */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .about-container h1 {
+    text-align: center;
+    color: var(--color-primary); /* Màu Đỏ (từ index.css) */
+    margin-bottom: 10px;
+  }
+  
+  .about-container .about-subtitle {
+    text-align: center;
+    color: var(--color-text-dark); /* Màu Đen (từ index.css) */
+    font-size: 1.1em;
+    margin-bottom: 30px;
+  }
+  
+  
+  /* Kiểu dáng chung cho các Section bên trong trang Giới thiệu */
+  .about-section {
+      padding: 30px 0; /* Khoảng đệm trên dưới */
+      margin-bottom: 40px; /* Khoảng cách dưới mỗi section */
+      border-bottom: 1px solid var(--color-border); /* Đường viền phân cách nhạt */
+  }
+  
+  /* Loại bỏ viền dưới cho section cuối cùng */
+  .about-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+  }
+  
+  /* Tiêu đề của mỗi section */
+  .about-section h2 {
+      text-align: center;
+      color: var(--color-primary); /* Màu Đỏ */
+      margin-bottom: 25px;
+      font-size: 1.8em;
+  }
+  
+  /* Style cho đoạn văn bản trong section */
+  .about-section p {
+      color: var(--color-text-dark); /* Màu Đen */
+      line-height: 1.8; /* Tăng chiều cao dòng cho dễ đọc */
+      margin-bottom: 15px; /* Khoảng cách dưới đoạn p */
+      text-align: left; /* Mặc định text căn trái */
+  }
+  
+  
+  /* Bố cục 2 cột (ảnh và text cạnh nhau) bên trong các Section */
+  .about-section .section-content-layout {
+      display: flex; /* Sử dụng Flexbox */
+      gap: 30px; /* Khoảng cách giữa các cột (ảnh và text) */
+      align-items: center; /* Căn giữa các cột theo chiều dọc */
+      flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+      justify-content: center; /* Căn giữa theo chiều ngang nếu không đủ chỗ */
+  }
+  
+  /* Style cho phần container ảnh và phần container text trong layout 2 cột */
+  .about-section .section-content-layout .section-image,
+  .about-section .section-content-layout .section-text {
+      flex: 1; /* Cho phép cả hai phần co giãn */
+      min-width: 280px; /* Chiều rộng tối thiểu trước khi xuống dòng */
+      /* Các style khác (như padding) có thể thêm vào đây */
+  }
+  
+  /* Bố cục đảo ngược (ảnh bên phải, text bên trái) */
+  .about-section .section-content-layout.layout-reverse {
+      flex-direction: row-reverse; /* Đảo ngược thứ tự cột */
+  }
+  
+  /* Style cho hình ảnh bên trong section */
+  .about-section .section-image img {
+      max-width: 100%; /* Đảm bảo ảnh không tràn */
+      height: auto; /* Giữ tỷ lệ */
+      border-radius: 4px;
+      display: block; /* Quan trọng để kiểm soát khoảng trắng dưới ảnh */
+      margin: 0 auto; /* Căn giữa ảnh nếu nó nhỏ hơn container */
+  }
+  
+  /* --- STYLE ĐẶC BIỆT CHO CONTAINER ẢNH TRONG SECTION ROBOT (ĐỂ HIỂN THỊ 2 ẢNH NGANG NHAU) --- */
+  .about-section.robot-section .section-image {
+      /* Các style chung cho section-image đã có */
+  
+      /* <-- THÊM CÁC THUỘC TÍNH FLEXBOX NÀY CHO CONTAINER ẢNH TRONG SECTION ROBOT --> */
+      display: flex; /* Biến container ảnh thành Flex container */
+      gap: 20px; /* Khoảng cách giữa các ảnh robot */
+      flex-wrap: wrap; /* Cho phép ảnh xuống dòng trên mobile */
+      justify-content: center; /* Căn giữa các ảnh robot nếu chúng không chiếm hết chiều rộng */
+      align-items: center; /* Căn giữa ảnh theo chiều dọc */
+      /* Điều chỉnh margin nếu cần */
+  }
+  
+  /* Style cho CÁC THẺ IMG con bên trong .section-image của Section Robot */
+  .about-section.robot-section .section-image img {
+      /* Các style chung cho img đã có */
+  
+      /* <-- ĐIỀU CHỈNH KÍCH THƯỚC CỦA MỖI ẢNH ROBOT --> */
+      /* Ví dụ: Mỗi ảnh chiếm gần 50% chiều rộng của container ảnh (trừ đi khoảng cách gap) */
+      width: calc(50% - 10px); /* Chiều rộng mỗi ảnh = 50% container trừ nửa gap */
+      /* Hoặc dùng flex: 1; nếu muốn chúng chia đều không gian trong container */
+      /* flex: 1; */
+  
+      /* Đảm bảo chiều cao nhất quán nếu muốn (ví dụ) */
+      /* height: 200px; */
+      object-fit: cover;
+      margin: 0; /* Đảm bảo không có margin dư thừa */
+  }
+  .about-section.tech-section .section-image { /* <-- Quy tắc riêng cho container ảnh trong section tech */
+    /* Các style chung cho section-image (nếu có) */
+     max-width: 600px; /* <-- Giới hạn chiều rộng cho container ảnh tech (tùy chọn) */
+     margin: 0 auto; /* <-- Căn giữa container ảnh tech (tùy chọn) */
+     /* Khi section-content-layout là display: flex, .section-image con sẽ có flex: 1. Có thể bỏ flex: 1 nếu dùng max-width/margin auto */
+     flex: none; /* Bỏ flex: 1 để max-width/margin auto hoạt động */
+
+
+    /* <-- THÊM CÁC THUỘC TÍNH FLEXBOX NÀY CHO CONTAINER ẢNH CÔNG NGHỆ --> */
+    display: flex; /* Biến container ảnh thành Flex container */
+    gap: 15px; /* Khoảng cách giữa các ảnh công nghệ */
+    flex-wrap: wrap; /* Cho phép ảnh xuống dòng trên mobile */
+    justify-content: center; /* Căn giữa các ảnh */
+    align-items: center; /* Căn giữa ảnh theo chiều dọc */
+}
+
+/* Style cho CÁC THẺ IMG con bên trong .section-image của Section Công Nghệ */
+.about-section.tech-section .section-image img {
+    /* Các style chung cho img đã có */
+
+    /* <-- ĐIỀU CHỈNH KÍCH THƯỚC CỦA MỖI ẢNH CÔNG NGHỆ --> */
+    /* Ví dụ: Mỗi ảnh chiếm gần 50% chiều rộng, trừ gap */
+    width: calc(50% - 7.5px); /* Chiều rộng mỗi ảnh = 50% container trừ nửa gap */
+    /* Hoặc dùng flex: 1; nếu muốn chúng chia đều không gian */
+    /* flex: 1; */
+
+    /* Đảm bảo chiều cao nhất quán nếu muốn (ví dụ) */
+    height: 250px; /* <-- Chiều cao cố định */
+    object-fit: contain; /* <-- Sử dụng contain để hiển thị toàn bộ ảnh sơ đồ */
+    margin: 0; /* Đảm bảo không có margin dư thừa */
+}
+  
+  
+  /* Điều chỉnh responsive */
+  @media (max-width: 768px) {
+      .about-container {
+          padding: 15px;
+          margin: 15px auto;
+      }
+      .about-container h1 { font-size: 1.8em; }
+      .about-container .about-subtitle { font-size: 1em; }
+      .about-section { margin-bottom: 30px; }
+      .about-section h2 { font-size: 1.5em; }
+  
+      /* Responsive cho bố cục 2 cột (text/ảnh) */
+      .about-section .section-content-layout,
+      .about-section .section-content-layout.layout-reverse {
+          flex-direction: column; /* Xếp cột trên mobile */
+          gap: 20px;
+          align-items: center;
+      }
+       .about-section .section-image,
+       .about-section .section-text {
+           width: 100%; /* Chiếm hết chiều rộng */
+           min-width: auto; /* Bỏ min-width */
+           text-align: center; /* Căn giữa text/ảnh trên mobile */
+       }
+        .about-section p {
+             text-align: center; /* Căn giữa đoạn văn bản trên mobile */
+         }
+  
+      /* Responsive cho CONTAINER ảnh trong section robot trên mobile */
+       .about-section.robot-section .section-image {
+           flex-direction: row; /* <-- Vẫn xếp ngang trên mobile (hoặc column nếu muốn xếp cột) */
+           gap: 10px; /* Điều chỉnh khoảng cách giữa các ảnh robot trên mobile */
+       }
+      /* Responsive cho CÁC THẺ IMG con trong .section-image của Section Robot trên mobile */
+       .about-section.robot-section .section-image img {
+           width: calc(50% - 5px); /* <-- Điều chỉnh chiều rộng ảnh = 50% trừ nửa gap trên mobile */
+           /* Hoặc 100% nếu .section-image flex-direction: column trên mobile */
+           /* width: 100%; */
+           height: auto;
+       }
+  }

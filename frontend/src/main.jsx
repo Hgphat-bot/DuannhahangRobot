@@ -8,12 +8,14 @@ import Layout from './components/Layout.jsx';
 import ChatbotPage from './components/ChatbotPage.jsx';
 import ReservationPage from './components/ReservationPage.jsx';
 import RegistrationPage from './components/RegistrationPage.jsx';
+import FoodMenuPage from './components/FoodMenuPage.jsx';
+import EmployeePage from './components/EmployeePage.jsx';
 import './index.css';
-
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,8 +41,17 @@ const router = createBrowserRouter([
         path: "dat-ban",
         element: <ReservationPage />,
       },
+      {path: "/employee",
+        element: <EmployeePage />,
+      },
+      {
+        path: "/food-menu",
+        element: <FoodMenuPage />,
+      },
     ],
+
   },
+
   {
     path: "/login",
     element: <LoginPage />,
@@ -48,7 +59,7 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <RegistrationPage />,
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

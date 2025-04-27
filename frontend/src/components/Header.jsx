@@ -11,13 +11,13 @@ function Header() {
     setAccountDropdownVisible(false);
   };
 
+
   return (
     <header className="site-header">
       <div className="header-logo">
         <img src="/logo.jpg" alt="Logo Nhà hàng ABC" className="logo-img" />
       </div>
-
-      <div className ="header-right-group">
+      <div className="header-right-group">
         <nav className="header-nav">
           <ul>
             <li><Link to="/">Trang chủ</Link></li>
@@ -27,15 +27,14 @@ function Header() {
             <li><Link to="/chatbot">Chatbot</Link></li>
           </ul>
         </nav>
-
         <div className="header-actions">
+            <a href="#" className="action-icon">🔍</a>
             <div
               className="account-dropdown-container"
               onMouseEnter={handleMouseEnterAccount}
               onMouseLeave={handleMouseLeaveAccount}
             >
                 <a href="#" className="action-icon account-icon">👤</a>
-
                 {isAccountDropdownVisible && (
                     <div className="account-dropdown-menu">
                         <Link to="/login">Đăng nhập</Link>

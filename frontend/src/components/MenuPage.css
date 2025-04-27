@@ -1,52 +1,118 @@
 /* frontend/src/components/MenuPage.css */
 
-.menu-container {
-    display: flex; /* Biến container chính thành Flex container */
-    justify-content: space-between; /* Đẩy cột trái và cột phải ra xa nhau */
-    padding: 20px; /* Thêm khoảng đệm cho toàn bộ trang Menu */
-    /* Có thể thêm max-width và margin: auto; nếu bạn muốn nội dung MenuPage không full width */
-    /* max-width: 1280px; */
-    /* margin: 20px auto; */
+.menu-container { /* Style cho container chính của trang lựa chọn */
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 1280px;
+  margin: 20px auto;
+  background-color: var(--color-background-light); /* Nền nhẹ */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menu-container h1,
+.menu-container p { /* Style cho text trong cột trái */
+    color: var(--color-text-dark);
+    text-align: left; /* Căn trái */
+}
+
+.menu-container h1 { margin-top: 0; margin-bottom: 10px; color: var(--color-primary); }
+
+
+.menu-left-column { /* Style cho cột trái */
+  flex: 1;
+  margin-right: 30px;
+  min-width: 250px;
+  max-width: 300px;
+  /* padding: 15px; */ /* Tùy chọn padding */
+}
+
+.menu-right-column { /* Style cho cột phải (chứa các lựa chọn) */
+  flex: 2;
+  display: flex;
+  flex-direction: column; /* Xếp các lựa chọn theo cột */
+  gap: 20px; /* Khoảng cách giữa các lựa chọn */
+  /* padding: 15px; */ /* Tùy chọn padding */
+}
+
+.menu-section { /* Style cho mỗi khối lựa chọn (có thể giữ lại class cũ) */
+  border: 1px solid var(--color-border);
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--color-background-light);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.menu-section h2 { /* Tiêu đề trong khối lựa chọn */
+    margin-top: 0;
+    color: var(--color-primary);
+    text-align: left; /* Căn trái */
+}
+
+ .menu-section p { /* Mô tả trong khối lựa chọn */
+     margin-bottom: 10px;
+     text-align: left; /* Căn trái */
+ }
+
+
+/* --- STYLE CHO CÁC NÚT LỰA CHỌN (Xem Menu, Xem Nhân viên) --- */
+.menu-choice-button {
+    display: inline-block; /* Hiển thị trên dòng */
+    width: fit-content; /* Chiều rộng vừa nội dung */
+    padding: 10px 15px;
+    background-color: var(--color-accent); /* Nền Vàng */
+    color: var(--color-button-text); /* Chữ Đen */
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Khoảng cách trên nút */
+}
+
+.menu-choice-button:hover {
+    background-color: var(--color-button-hover); /* Vàng đậm hơn */
+}
+
+
+/* Điều chỉnh responsive cho Menu Page (Trang lựa chọn) */
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+    padding: 15px;
+    margin: 15px auto;
+    align-items: center; /* Căn giữa các cột khi xếp cột */
   }
-  
+
+  .menu-container h1,
+  .menu-container p {
+      text-align: center; /* Căn giữa text trên mobile */
+  }
+
   .menu-left-column {
-    flex: 1; /* Cho phép cột trái co giãn */
-    margin-right: 30px; /* Khoảng cách giữa cột trái và phải */
-    /* max-width: 300px; */ /* Ví dụ: giới hạn chiều rộng cột trái */
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: none;
+    min-width: auto;
   }
-  
+
   .menu-right-column {
-    flex: 2; /* Cho phép cột phải co giãn nhanh hơn (ví dụ: gấp đôi cột trái) */
-    display: flex; /* Biến cột phải thành Flex container */
-    flex-direction: column; /* Xếp các section bên trong theo chiều dọc */
-    gap: 20px; /* Khoảng cách giữa các section */
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center; /* Căn giữa các lựa chọn */
   }
-  
-  .menu-section {
-    border: 1px solid #ccc; /* Đường viền */
-    padding: 15px; /* Khoảng đệm bên trong */
-    border-radius: 8px; /* Bo tròn góc */
-    background-color: #f9f9f9; /* Nền nhẹ */
-  }
-  
-  .menu-section h2 {
-      margin-top: 0;
-  }
-  
-  /* Điều chỉnh responsive */
-  @media (max-width: 768px) {
-    .menu-container {
-      flex-direction: column; /* Xếp cột trên màn hình nhỏ */
-      padding: 15px;
+   .menu-section {
+       width: 100%; /* Rộng full container cột phải */
+   }
+   .menu-section h2,
+   .menu-section p {
+       text-align: center; /* Căn giữa text trong khối lựa chọn trên mobile */
+   }
+    .menu-choice-button {
+       width: 100%; /* Rộng full trên mobile */
+       text-align: center;
     }
-  
-    .menu-left-column {
-      margin-right: 0;
-      margin-bottom: 20px; /* Khoảng cách dưới cột trái */
-    }
-  
-    .menu-right-column {
-      flex-direction: column; /* Các section vẫn xếp chồng */
-      gap: 15px;
-    }
-  }
+}
