@@ -1,70 +1,112 @@
+/* frontend/src/index.css */
+
+/*---------------------------------------------------------------------
+import Fonts - Import các font từ template HTML
+---------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,600i,700,700i,800,800i&display=swap');
+
+/*--------------------------------------------------------------------- import Files (từ template, bỏ qua nếu không dùng thư viện tương ứng) ---------------------------------------------------------------------*/
+/* @import url(font-awesome.min.css); */
+/* @import url(owl.carousel.min.css); */
+/* @import url(jquery.mCustomScrollbar.min.css); */
+
+
+/* Reset CSS cơ bản để loại bỏ margin/padding mặc định của trình duyệt và thiết lập box-sizing */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+
+/* Định nghĩa Bảng màu theo chủ đề 30/04: Đỏ, Đen, Nút Vàng */
+/* Bạn có thể thay đổi các mã màu hex này để phù hợp với ý tưởng của mình */
 :root {
-  --color-primary: #DA251D;
-  --color-secondary: #1A1A1A;
-  --color-accent: #F9F15F;
+  /* Màu chính - chủ đề 30/04 */
+  --color-primary: #DA251D;   /* Màu Đỏ đặc trưng */
+  --color-secondary: #1A1A1A; /* Màu Đen */
+  --color-accent: #F9F15F;    /* Màu Vàng (dùng cho nút bấm và điểm nhấn) */
 
-  --color-text-dark: #1A1A1A;
-  --color-text-light: #FFFFFF;
+  /* Màu chữ */
+  --color-text-dark: #1A1A1A; /* Chữ Đen */
+  --color-text-light: #FFFFFF;/* Chữ Trắng */
 
-  --color-background-light: #F8F8F8;
-  --color-background-dark: #1A1A1A;
+  /* Màu nền */
+  --color-background-light: #F8F8F8; /* Nền nhẹ */
+  --color-background-dark: #1A1A1A;  /* Nền Đen (tùy chọn cho các section) */
 
-  --color-border: #DDDDDD;
+  /* Màu viền */
+  --color-border: #DDDDDD;   /* Màu viền nhạt */
 
-  --color-button-background: var(--color-accent);
-  --color-button-text: var(--color-text-dark);
+  /* Màu riêng cho nút bấm */
+  --color-button-background: var(--color-accent); /* Nền nút là màu Vàng */
+  --color-button-text: var(--color-text-dark);    /* Chữ trên nút màu Đen hoặc Đậm */
 
-  --color-button-hover: #FFDA00;
+  /* Có thể thêm biến màu cho hiệu ứng hover, active, ... */
+  --color-button-hover: #FFDA00; /* Vàng đậm hơn khi hover */
 
-  --color-success: #28a745;
-  --color-error: #dc3545;
-  --color-warning: #ffc107;
+  /* Màu cho thông báo trạng thái (ví dụ thêm) */
+  --color-success: #28a745; /* Xanh lá */
+  --color-error: #dc3545;   /* Đỏ */
+  --color-warning: #ffc107; /* Vàng */
 }
 
+/* Thiết lập Font chữ cơ bản và màu nền/chữ cho toàn bộ body */
 body {
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  line-height: 1.6; /* Điều chỉnh chiều cao dòng */
 
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif; /* <-- Ví dụ: Sử dụng font Poppins làm font chính */
+  /* Thay 'Poppins', sans-serif nếu bạn muốn font khác từ các font đã import */
 
-  color: var(--color-text-dark);
-  background-color: var(--color-secondary);
+  /* Sử dụng biến màu cho màu chữ và màu nền body */
+  color: var(--color-text-dark); /* Màu chữ body */
+  background-color: var(--color-secondary); /* <-- Màu nền body tối (Đen) */
 
-  padding-top: 70px;
+
+  /* Giữ lại padding-top cho header cố định */
+  padding-top: 106px; /* <-- Cập nhật padding-top để khớp chiều cao header cố định (quan sát template header height) */
 }
 
+/* Style cơ bản cho các thẻ HTML (lấy cảm hứng từ template) */
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
+  letter-spacing: 0; /* <-- Từ template */
+  font-weight: normal; /* <-- Từ template */
+  line-height: normal; /* <-- Từ template */
+  /* Các margin và màu sắc cụ thể được định nghĩa trong style Component */
 }
+
+h1 { font-size: 2.5em; } /* <-- Tương ứng với 45px/16px base font size template */
+h2 { font-size: 2em; }   /* <-- Tương ứng với 37px/16px base font size template */
+h3 { font-size: 1.75em; } /* <-- Tương ứng với 30px/16px base font size template */
+h4 { font-size: 1.5em; }
+h5 { font-size: 1.25em; }
+h6 { font-size: 1em; }
+
 
 ul, ol {
+  margin: 0px; /* <-- Từ template */
+  padding: 0px; /* <-- Từ template */
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  color: var(--color-text-dark); /* Màu link mặc định (Đen) */
+  text-decoration: none !important; /* <-- Từ template */
+  outline: none !important; /* <-- Từ template */
+  -webkit-transition: all .3s ease-in-out; /* <-- Từ template */
+  -moz-transition: all .3s ease-in-out; /* <-- Từ template */
+  -ms-transition: all .3s ease-in-out; /* <-- Từ template */
+  -o-transition: all .3s ease-in-out; /* <-- Từ template */
+  transition: all .3s ease-in-out; /* <-- Từ template */
 }
 
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+img {
+  max-width: 100%; /* <-- Từ template */
+  height: auto; /* <-- Từ template */
+  display: block; /* Để dễ căn chỉnh */
 }

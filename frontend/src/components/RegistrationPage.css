@@ -1,3 +1,5 @@
+/* frontend/src/components/RegistrationPage.css */
+
 .registration-container {
   max-width: 500px;
   margin: 20px auto;
@@ -38,6 +40,12 @@
   font-size: 1em;
 }
 
+/* Style cho nhóm Radio buttons (nếu có) */
+/* .registration-form .radio-group { ... } */
+/* .registration-form .radio-group label { ... } */
+/* .registration-form input[type="radio"] { ... } */
+
+
 .registration-form .submit-button {
   display: block;
   width: 100%;
@@ -56,6 +64,7 @@
   background-color: var(--color-button-hover);
 }
 
+/* Style cho liên kết Đăng nhập dưới form */
  .auth-link-text {
     margin-top: 20px;
     font-size: 0.9em;

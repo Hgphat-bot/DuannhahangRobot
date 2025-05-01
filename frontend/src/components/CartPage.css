@@ -1,0 +1,129 @@
+/* frontend/src/components/CartPage.css */
+
+/* Style cho container chính của trang Giỏ hàng */
+.cart-page-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--color-background-light);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .cart-page-container h1 {
+      text-align: center;
+      color: var(--color-primary);
+      margin-bottom: 20px;
+  }
+  
+  .cart-page-container p { /* Style cho text rỗng */
+       text-align: center;
+       color: var(--color-text-dark);
+       font-size: 1.1em;
+  }
+  
+  /* Style cho danh sách các item trong giỏ hàng */
+  .cart-items-list {
+      display: flex; /* Sử dụng Flexbox xếp cột */
+      flex-direction: column;
+      gap: 15px; /* Khoảng cách giữa các item */
+  }
+  
+  /* Style cho mỗi item trong giỏ hàng */
+  .cart-item {
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 15px;
+      display: flex; /* Sử dụng Flexbox xếp ngang ảnh, info, số lượng, nút xóa */
+      align-items: center;
+      gap: 20px; /* Khoảng cách giữa các cột con */
+      background-color: #fff; /* Nền trắng cho item */
+  }
+  
+  .cart-item img {
+      width: 60px; /* Kích thước ảnh */
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+  }
+  
+  .cart-item-info { /* Khu vực tên và giá item */
+      flex-grow: 1; /* Choán hết không gian */
+  }
+  .cart-item-info h3 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      color: var(--color-text-dark);
+  }
+  .cart-item-info .cart-item-price {
+      font-size: 1em;
+      font-weight: bold;
+      color: var(--color-primary);
+  }
+  
+  .cart-item-quantity { /* Khu vực số lượng */
+      display: flex; /* Để xếp số lượng và nút +/- */
+      align-items: center;
+      gap: 5px;
+      font-size: 1em;
+      color: var(--color-text-dark);
+  }
+  
+  /* Style cho nút +/- điều chỉnh số lượng */
+  .cart-item-quantity button {
+      padding: 2px 8px;
+      background-color: var(--color-border);
+      color: var(--color-text-dark);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.2s ease;
+  }
+  
+  .cart-item-quantity button:hover {
+       background-color: var(--color-secondary);
+       color: var(--color-text-light);
+  }
+  
+  
+  /* Style cho nút Xóa item */
+  .remove-item-button {
+      padding: 5px 10px;
+      background-color: var(--color-error);
+      color: var(--color-text-light);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background-color 0.3s ease;
+  }
+  .remove-item-button:hover { background-color: #c82333; }
+  
+  
+  /* Style cho tổng tiền và nút thanh toán (nếu có) */
+  /* .cart-summary { ... } */
+  /* .checkout-button { ... } */
+  
+  /* Style cho nút Xóa hết giỏ hàng (nếu có) */
+  /* .clear-cart-button { ... } */
+  
+  /* Điều chỉnh responsive */
+  @media (max-width: 768px) {
+      .cart-page-container {
+          padding: 15px;
+          margin: 15px auto;
+      }
+      .cart-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+      }
+       .cart-item img {
+           width: 50px; height: 50px;
+       }
+        .cart-item-info { width: 100%; }
+         .cart-item-quantity { width: 100%; justify-content: center; }
+          .remove-item-button { width: 100%; text-align: center; }
+  }

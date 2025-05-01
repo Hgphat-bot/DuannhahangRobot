@@ -1,18 +1,20 @@
 /* frontend/src/components/MenuPage.css */
 
-.menu-container { /* Style cho container chính của trang lựa chọn */
-  display: flex;
+/* Style cho container chính của trang lựa chọn */
+.menu-container {
+  display: flex; /* Sử dụng Flexbox */
   justify-content: space-between;
   padding: 20px;
-  max-width: 1280px;
+  max-width: 1280px; /* Giới hạn chiều rộng */
   margin: 20px auto;
   background-color: var(--color-background-light); /* Nền nhẹ */
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Style cho text trong cột trái */
 .menu-container h1,
-.menu-container p { /* Style cho text trong cột trái */
+.menu-container p {
     color: var(--color-text-dark);
     text-align: left; /* Căn trái */
 }
@@ -20,23 +22,24 @@
 .menu-container h1 { margin-top: 0; margin-bottom: 10px; color: var(--color-primary); }
 
 
-.menu-left-column { /* Style cho cột trái */
+/* Style cho cột trái */
+.menu-left-column {
   flex: 1;
   margin-right: 30px;
   min-width: 250px;
   max-width: 300px;
-  /* padding: 15px; */ /* Tùy chọn padding */
 }
 
-.menu-right-column { /* Style cho cột phải (chứa các lựa chọn) */
+/* Style cho cột phải (chứa các lựa chọn) */
+.menu-right-column {
   flex: 2;
   display: flex;
   flex-direction: column; /* Xếp các lựa chọn theo cột */
-  gap: 20px; /* Khoảng cách giữa các lựa chọn */
-  /* padding: 15px; */ /* Tùy chọn padding */
+  gap: 20px;
 }
 
-.menu-section { /* Style cho mỗi khối lựa chọn (có thể giữ lại class cũ) */
+/* Style cho mỗi khối lựa chọn */
+.menu-section {
   border: 1px solid var(--color-border);
   padding: 15px;
   border-radius: 8px;
@@ -44,33 +47,78 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.menu-section h2 { /* Tiêu đề trong khối lựa chọn */
+/* Tiêu đề trong khối lựa chọn */
+.menu-section h2 {
     margin-top: 0;
     color: var(--color-primary);
-    text-align: left; /* Căn trái */
+    text-align: left;
 }
 
- .menu-section p { /* Mô tả trong khối lựa chọn */
+/* Mô tả trong khối lựa chọn */
+ .menu-section p {
      margin-bottom: 10px;
-     text-align: left; /* Căn trái */
+     color: var(--color-text-dark);
+     text-align: left;
  }
 
 
-/* --- STYLE CHO CÁC NÚT LỰA CHỌN (Xem Menu, Xem Nhân viên) --- */
+/* Style cho các NÚT LỰA CHỌN (Xem Menu, Xem Nhân viên) */
 .menu-choice-button {
-    display: inline-block; /* Hiển thị trên dòng */
-    width: fit-content; /* Chiều rộng vừa nội dung */
+    display: inline-block;
+    width: fit-content;
     padding: 10px 15px;
-    background-color: var(--color-accent); /* Nền Vàng */
-    color: var(--color-button-text); /* Chữ Đen */
+    background-color: var(--color-accent);
+    color: var(--color-button-text);
     text-decoration: none;
     border-radius: 4px;
     font-size: 1em;
     font-weight: bold;
     transition: background-color 0.3s ease;
-    margin-top: 10px; /* Khoảng cách trên nút */
+    margin-top: 10px;
 }
 
 .menu-choice-button:hover {
-    background-color: var(--color-button-hover); /* Vàng đậm hơn */
+    background-color: var(--color-button-hover);
+}
+
+
+/* Điều chỉnh responsive */
+@media (max-width: 768px) {
+  .menu-container {
+    flex-direction: column;
+    padding: 15px;
+    margin: 15px auto;
+    align-items: center;
+  }
+
+  .menu-container h1,
+  .menu-container p {
+      text-align: center;
+  }
+
+  .menu-left-column {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+  }
+
+  .menu-right-column {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+  }
+   .menu-section {
+       width: 100%;
+   }
+   .menu-section h2,
+   .menu-section p {
+       text-align: center;
+   }
+    .menu-choice-button {
+       width: 100%;
+       text-align: center;
+    }
 }

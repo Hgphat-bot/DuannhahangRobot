@@ -1,6 +1,8 @@
+/* frontend/src/components/LoginPage.css */
+
 .login-container {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 50px auto; /* Căn giữa */
   padding: 20px;
   border: 1px solid var(--color-border);
   border-radius: 8px;
@@ -15,8 +17,8 @@
 }
 
 .login-form .form-group {
-    margin-bottom: 15px;
-    text-align: left;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
 .login-form label {
@@ -54,7 +56,8 @@
   background-color: var(--color-button-hover);
 }
 
-.auth-link-text {
+/* Style cho liên kết Đăng ký dưới form */
+ .auth-link-text {
     margin-top: 20px;
     font-size: 0.9em;
     text-align: center;

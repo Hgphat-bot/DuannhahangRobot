@@ -1,10 +1,12 @@
+/* frontend/src/components/ReservationPage.css */
+
 .reservation-container {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
+  background-color: var(--color-background-light);
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  background-color: var(--color-background-light);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -32,8 +34,7 @@
 .reservation-form input[type="number"],
 .reservation-form input[type="email"],
 .reservation-form input[type="tel"],
-.reservation-form input[type="password"]
- {
+.reservation-form input[type="password"] {
   width: 100%;
   padding: 10px;
   border: 1px solid var(--color-border);
@@ -42,6 +43,7 @@
   font-size: 1em;
 }
 
+/* Style cho nhóm Radio buttons (Hạng bàn) */
 .reservation-form .radio-group {
     display: inline-block;
     margin-right: 15px;
@@ -52,6 +54,11 @@
     font-weight: normal;
     margin-left: 5px;
 }
+
+.reservation-form input[type="radio"] {
+    /* ... */
+}
+
 
 .reservation-form .submit-button {
   display: block;
@@ -71,6 +78,7 @@
   background-color: var(--color-button-hover);
 }
 
+/* Style cho thông báo trạng thái đặt bàn */
 .booking-message {
     padding: 15px;
     margin-top: 15px;

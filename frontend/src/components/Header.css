@@ -1,97 +1,122 @@
+/* frontend/src/components/Header.css */
+
+/* Style cho Header chính (lấy cảm hứng từ template) */
 .site-header {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  min-height: 65px;
+  background: rgba(39, 43, 44, 0.87); /* <-- Màu nền từ template (rgba) hoặc màu Đỏ 30/04 */
+  /* background-color: var(--color-primary); */
+  color: var(--color-text-light); /* Chữ Trắng */
+  padding: 10px 30px; /* Điều chỉnh padding (quan sát template) */
+  height: 106px; /* <-- Chiều cao cố định từ template */
+  display: flex; /* Sử dụng Flexbox */
+  justify-content: space-between; /* Đẩy logo sang trái, nhóm nav/actions sang phải */
+  align-items: center; /* Căn giữa các mục theo chiều dọc */
+  flex-wrap: wrap; /* Cho phép các mục xuống dòng trên màn hình nhỏ */
+
+  position: fixed; /* Giữ Header cố định trên màn hình */
+  top: 0; /* Đặt Header ở vị trí 0px từ mép trên */
+  left: 0; /* Đặt Header ở vị trí 0px từ mép trái */
+  width: 100%; /* Cho Header rộng full màn hình */
+  z-index: 1000; /* Đảm bảo Header nằm trên các nội dung khác khi cuộn */
+  box-shadow: 3px 0 13px rgba(30, 30, 30, 0.90); /* <-- Bóng đổ từ template */
+}
+
+/* Kiểu dáng cho khu vực Logo */
+.header-logo {
+    display: flex;
+    align-items: center;
+    /* Điều chỉnh padding/margin nếu cần */
 }
 
 .header-logo .logo-img {
-  height: 40px;
+  height: auto; /* Chiều cao auto */
+  max-height: 50px; /* Giới hạn chiều cao logo */
   width: auto;
   display: block;
 }
 
-.header-logo {
-    display: flex;
-    align-items: center;
-}
 
+/* Style cho nhóm bên phải (Menu Điều hướng và Actions) */
 .header-right-group {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 30px; /* Khoảng cách giữa Nav và Actions */
   flex-wrap: wrap;
   justify-content: center;
 }
 
+
+/* Style cho khu vực Menu Điều hướng (lấy cảm hứng từ template) */
 .header-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px; /* Khoảng cách giữa các mục menu */
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.header-nav a {
-  color: var(--color-text-light);
+.header-nav ul li a { /* Style cho liên kết menu */
+  color: var(--color-text-light); /* Chữ Trắng */
+  font-size: 17px; /* Kích thước font */
+  line-height: 20px; /* Line height */
+  font-weight: 400; /* Độ đậm font */
+  padding: 0;
   text-decoration: none;
-  font-weight: 500; 
-  font-size: 1em;
   transition: color 0.3s ease;
 }
 
-.header-nav a:hover {
-  color: var(--color-accent);
+.header-nav ul li a:hover {
+  color: var(--color-accent); /* Màu Vàng khi hover */
 }
 
+/* Style cho liên kết trang hiện tại (active) nếu dùng NavLink */
+/* .header-nav .active a { color: var(--color-accent); } */
+
+
+/* Kiểu dáng cho khu vực các icon hoặc nút Actions */
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px; /* Khoảng cách giữa các icon/link actions */
 }
 
+/* Style cho icon links (login, search, cart, ...) */
 .header-actions .action-icon {
-    color: var(--color-accent);
-    font-size: 1.4em;
+    color: var(--color-text-light); /* Chữ Trắng */
+    font-size: 17px; /* Kích thước font (cho link text) */
+    line-height: 20px; /* Line height */
     text-decoration: none;
     transition: color 0.3s ease;
     cursor: pointer;
+    /* Nếu là icon font (fa, etc.), kích thước có thể cần lớn hơn */
+    /* font-size: 19px; */
 }
 
 .header-actions .action-icon:hover {
-    color: var(--color-text-light);
+    color: var(--color-accent); /* Màu Vàng khi hover */
 }
 
+/* Style cho CONTAINER bao biểu tượng Tài khoản và Dropdown */
 .account-dropdown-container {
     position: relative;
     display: flex;
     align-items: center;
 }
 
+/* Style cho MENU THẢ XUỐNG (DROPDOWN) */
 .account-dropdown-menu {
     position: absolute;
     top: 100%;
-    right: 0; 
-    background-color: var(--color-background-light);
+    right: 0; /* Căn lề phải */
+    background-color: var(--color-background-light); /* Nền nhẹ */
     border: 1px solid var(--color-border);
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     min-width: 150px;
     padding: 10px 0;
-    z-index: 1001;
+    z-index: 1001; /* Đảm bảo nằm trên Header */
     display: flex;
     flex-direction: column;
 }
@@ -99,7 +124,7 @@
 .account-dropdown-menu a,
 .account-dropdown-menu .link {
     padding: 8px 15px;
-    color: var(--color-text-dark);
+    color: var(--color-text-dark); /* Chữ Đen */
     text-decoration: none;
     font-size: 0.9em;
     transition: background-color 0.2s ease;
@@ -109,4 +134,53 @@
 .account-dropdown-menu .link:hover {
     background-color: var(--color-border);
     color: var(--color-text-dark);
+}
+
+
+/* --- ĐIỀU CHỈNH RESPONSIVE CHUNG --- */
+@media (max-width: 991px) { /* Breakpoint md */
+  /* Header Responsive */
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0; /* Giảm padding hai bên trên mobile */
+    height: auto;
+  }
+
+  .header-logo {
+      margin-bottom: 10px;
+      width: 100%; /* Rộng full để logo căn giữa */
+      text-align: center; /* Căn giữa ảnh logo */
+  }
+
+  .header-right-group {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 15px;
+  }
+
+  .header-nav {
+      width: 100%;
+      text-align: center;
+  }
+  .header-nav ul {
+    flex-direction: column; /* Xếp mục menu theo cột trên mobile */
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .header-actions {
+      justify-content: center; /* Căn giữa icons trên mobile */
+      margin-top: 10px;
+  }
+
+  /* Điều chỉnh vị trí dropdown trên mobile */
+   .account-dropdown-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(100% + 5px);
+    }
 }
