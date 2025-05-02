@@ -28,24 +28,52 @@ function ReservationPage() {
     setCustomerContact(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
 
     const bookingData = {
-      time: reservationTime,
-      guests: numberOfGuests,
-      type: tableType,
-      name: customerName,
-      contact: customerContact,
+      customerName: customerName,
+      customerContact: customerContact,
+      reservationTime: reservationTime,
+      numberOfGuests: numberOfGuests,
+      tableType: tableType,
     };
 
     console.log("Thông tin đặt bàn:", bookingData);
-    setBookingStatus('processing');
-    setTimeout(() => {
-        setBookingStatus('success');
-    }, 1000);
+    setBookingStatus('processing'); // Đặt trạng thái đang xử lý
 
+    try {
+      const response = await fetch('http://localhost:3001/api/reservations', { // <-- URL CỦA ENDPOINT BACKEND ĐẶT BÀN
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData), // Gửi dữ liệu form dưới dạng JSON
+      });
+
+      const result = await response.json(); // Chờ và đọc phản hồi JSON từ backend
+
+      if (response.ok) { // Kiểm tra nếu backend trả về status 200-299 (thành công)
+        console.log("Đặt bàn thành công:", result);
+        setBookingStatus('success'); // Cập nhật state thành 'success'
+        // Có thể xóa trắng form sau khi thành công
+        // setReservationTime('');
+        // setNumberOfGuests(1);
+        // setTableType('normal');
+        // setCustomerName('');
+        // setCustomerContact('');
+
+      } else { // Nếu backend trả về lỗi (status >= 400)
+        console.error('Lỗi từ backend:', result.message || response.statusText);
+        setBookingStatus('error'); // Cập nhật state thành 'error'
+      }
+
+    } catch (error) { // Bắt lỗi khi gửi request (ví dụ: server backend không chạy)
+      console.error('Lỗi khi gửi request đặt bàn:', error);
+      setBookingStatus('error'); // Cập nhật state thành 'error'
+    }
+    // --- KẾT THÚC GỬI DỮ LIỆU ĐẶT BÀN ---
   };
 
   return (

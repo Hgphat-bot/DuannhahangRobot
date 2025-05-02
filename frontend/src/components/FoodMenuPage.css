@@ -194,3 +194,22 @@
           font-size: 0.85em;
       }
 }
+
+.menu-search-input {
+    width: 100%; /* Mặc định rộng full */
+    max-width: 500px; /* <-- Giới hạn chiều rộng (tùy chọn) */
+    padding: 10px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 20px; /* Bo tròn góc */
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Style cho thông báo không tìm thấy kết quả */
+.no-results-message {
+    text-align: center;
+    color: var(--color-text-dark);
+    font-size: 1.1em;
+    margin-top: 30px;
+    grid-column: 1 / -1; /* <-- Quan trọng: Choán hết chiều rộng lưới */
+}
